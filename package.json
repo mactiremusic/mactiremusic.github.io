@@ -3,8 +3,8 @@
   "main": "none.notafileextension",
   "scripts": {
     "pregit": "git add -A",
-    "git" : "git commit -m 'auto'",
-    "postgit": "git commit origin master"
+    "git" : "git commit -m 'auto'"
+    
   },
   "dependencies": {
     
