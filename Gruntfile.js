@@ -13,18 +13,30 @@ module.exports = function(grunt) {
         }
       }
     },
+    sass: {                              // Task
+        dist: {                            // Target
+          options: {                       // Target options
+            style: 'compressed'
+          },
+          files: {                         // Dictionary of files
+            'build/css/main.css': 'source/style/main.scss'       // 'destination': 'source'
+          }
+        }
+      },
     watch: {
         scripts: {
             files: ["./source/**/*"],
-            tasks: ["includes"]
+            tasks: ["includes", "style"]
          }
     }
   });
 
   grunt.loadNpmTasks('grunt-includes');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask('build', ['includes']);
+  grunt.registerTask('style', ['sass']);
   grunt.registerTask('default', ['watch']);
   
 
