@@ -1,5 +1,8 @@
 body {
-  background-image: url(../assets/background.png);
+  background-image: url(../assets/background.png); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -78,6 +81,7 @@ body {
   position: relative;
   top: 50%;
   -ms-transform: translateY(-50%); /* IE 9 */
+  -moz-transform: translateY(-50%); /* IE 9 */
   -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
   transform: translateY(-50%);
   margin: auto 80% auto 20%;
@@ -105,6 +109,20 @@ body {
   }
 }
 
+@-moz-document url-prefix() { 
+  .body {
+    background: url(../assets/background.png)no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  .album-container {
+    transform: translateY(70%);
+  }
+}
+
 
 /////////social media///////////////
 
@@ -125,10 +143,29 @@ body {
   }
 }
 
+@media (max-width: 800px) { //ipad
+
+  body { //moves background image
+    background-position: 63% 0px;
+  }
+  
+  .navbar-container {
+    margin-top: 10px;
+    .navbar {
+      li {
+        margin: 0px 10px;
+      }
+    }
+  }
+  
+  .album-container {
+    margin: auto 94% auto 6%;
+  }
+}
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 600px) { //phones
   
   body { //moves background image
     background-position: 63% 0px;
@@ -156,17 +193,20 @@ body {
   .site-header-container {
     text-align: center;
     padding-top: 20px;
+    height: initial;
+    width: initial;
     .site-header {
       position: static;
     }
   }
   
   .navbar-container {
+    margin-top: 0px; // removes padding from ipad querry
     width: 0px;
     height: 0px;
     .navbar {
       display: none;
-      position: fixed;
+      position: absolute;
       background-color: black;
       width: 100%;
       text-align: left;
@@ -194,7 +234,11 @@ body {
   .album-container {
     width: 100%;
     margin: auto;
-    top: 65%;
+    padding-top: 50%;
+    position:static;
+    -ms-transform: none; /* IE 9 */
+    -webkit-transform: none; /* Chrome, Safari, Opera */
+    transform: none;
   }
   
   
@@ -211,7 +255,7 @@ body {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 320px) { //thinner phones
   
   .site-header-container {
     .site-header {
