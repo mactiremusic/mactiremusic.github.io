@@ -48,13 +48,6 @@ $(document).ready(function(){
     $(this).animate({ color: 'white' }, { duration: 200, queue: false});
   });
   
-  //SOCIAL MEDIA ICONS HIGHLIGHTING//
-  $("i").mouseenter(function(){
-    $(this).animate({ color: '#444444' }, { duration: 200, queue: false});
-  })
-  $("i").mouseleave(function(){
-    $(this).animate({ color: 'white' }, { duration: 200, queue: false});
-  });
   
   
   //NAVIGATION LINKS
